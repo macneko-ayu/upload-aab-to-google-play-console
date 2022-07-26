@@ -6,6 +6,19 @@ plugins {
 android {
     compileSdk 32
 
+    signingConfigs {
+        release {
+            def propertiesFile = rootProject.file("keystore.properties")
+            def properties = new Properties()
+            properties.load(new FileInputStream(propertiesFile))
+
+            keyAlias properties.getProperty("KEY_ALIAS")
+            keyPassword properties.getProperty("KEY_PASSWORD")
+            storeFile file(properties.get("STORE_FILE_PATH"))
+            storePassword properties.getProperty("STORE_PASSWORD")
+        }
+    }
+
     defaultConfig {
         applicationId "com.macneko.uploadsampleapp"
         minSdk 30
@@ -20,6 +33,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
