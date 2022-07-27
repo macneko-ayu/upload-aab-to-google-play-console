@@ -16,3 +16,4 @@ local.properties
 key.properties
 generate_bundle_setting.png
 keystore.jks
+service_account.json
