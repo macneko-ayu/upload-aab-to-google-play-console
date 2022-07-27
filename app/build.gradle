@@ -8,7 +8,7 @@ android {
 
     signingConfigs {
         release {
-            def propertiesFile = rootProject.file("keystore.properties")
+            def propertiesFile = rootProject.file("key.properties")
             def properties = new Properties()
             properties.load(new FileInputStream(propertiesFile))
 
