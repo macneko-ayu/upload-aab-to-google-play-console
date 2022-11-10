@@ -8,7 +8,7 @@ android {
 
     signingConfigs {
         release {
-            def propertiesFile = rootProject.file("keystore.properties")
+            def propertiesFile = rootProject.file("key.properties")
             def properties = new Properties()
             properties.load(new FileInputStream(propertiesFile))
 
@@ -23,7 +23,7 @@ android {
         applicationId "com.macneko.uploadsampleapp"
         minSdk 30
         targetSdk 32
-        versionCode 1
+        versionCode 4
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
